@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Smart Course AI{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 sidebar p-4">
+            <h5 class="fw-bold mb-4"><i class="bi bi-clock-history me-2"></i>Search History</h5>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action history-item active border-0 rounded mb-2 p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <small class="fw-bold">"Python Data Science"</small>
+                    </div>
+                    <small class="text-white-50">Today, 2:45 PM</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action history-item border-0 rounded mb-2 p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <small class="fw-bold">"Web Dev with React"</small>
+                    </div>
+                    <small class="text-muted">Yesterday, 10:15 AM</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action history-item border-0 rounded mb-2 p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <small class="fw-bold">"Cloud Architecture"</small>
+                    </div>
+                    <small class="text-muted">Jan 15, 4:20 PM</small>
+                </a>
+            </div>
+        </div>
+
+        <main class="col-md-9 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">Session Insight: <span class="text-primary">"Python Data Science"</span></h2>
+                <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash me-1"></i> Clear Session</button>
+            </div>
+
+            <section class="mb-5">
+                <h5 class="fw-bold mb-3 text-secondary">Model Comparison Analysis</h5>
+                <div class="table-responsive shadow-sm border rounded">
+                    <table class="table align-middle mb-0">
+                        <thead class="comparison-header text-center">
+                            <tr>
+                                <th width="50%" class="border-end text-primary"><i class="bi bi-fonts me-2"></i>TF-IDF Results</th>
+                                <th width="50%" class="text-success"><i class="bi bi-cpu me-2"></i>Neural Results</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border-end p-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-bold small">1. Intro to Python Programming</span>
+                                        <span class="badge bg-primary-subtle text-primary score-badge">99% Match</span>
+                                    </div>
+                                </td>
+                                <td class="p-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-bold small">1. Applied AI with Python</span>
+                                        <span class="badge bg-success-subtle text-success score-badge">96% Semantic</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border-end p-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-bold small">2. Data Science Python Basics</span>
+                                        <span class="badge bg-primary-subtle text-primary score-badge">94% Match</span>
+                                    </div>
+                                </td>
+                                <td class="p-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-bold small">2. Machine Learning Foundations</span>
+                                        <span class="badge bg-success-subtle text-success score-badge">92% Semantic</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h5 class="fw-bold mb-3 text-secondary">Saved from this Session</h5>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card h-100 border-start border-success border-4 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h6 class="fw-bold">Applied AI with Python</h6>
+                                    <i class="bi bi-bookmark-fill text-success"></i>
+                                </div>
+                                <p class="text-muted small mb-0">University of IBM | Data Science</p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-light text-dark border">Neural Engine</span>
+                                    <a href="#" class="btn btn-sm btn-link text-danger">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}

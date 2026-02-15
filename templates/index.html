@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Smart Course AI{% endblock %}
+
+{% block content %}
+<header class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-3 fw-bold mb-3">AI-Powered Course Discovery</h1>
+        <p class="lead mb-5 fs-4">Analyze over 3,500+ courses using state-of-the-art NLP models to find your next skill.</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="btn btn-success btn-lg px-5 shadow">Get Started</a>
+            <a href="#features" class="btn btn-outline-light btn-lg px-5">View Capabilities</a>
+        </div>
+    </div>
+</header>
+
+<section id="features" class="py-5 mt-4">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bold">System Capabilities</h2>
+                <p class="text-muted">Our platform uses a dual-engine approach to ensure you find exactly what you're looking for.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 feature-card p-4">
+                    <div class="card-body">
+                        <div class="icon-box"><i class="bi bi-braces"></i></div>
+                        <h4 class="card-title fw-bold">TF-IDF Analysis</h4>
+                        <p class="card-text text-muted">Keyword-focused recommendations. We analyze Term Frequency to match your exact technical queries with course descriptions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 feature-card p-4 border-primary">
+                    <div class="card-body">
+                        <div class="icon-box"><i class="bi bi-gpu-card"></i></div>
+                        <h4 class="card-title fw-bold text-primary">Neural Understanding</h4>
+                        <p class="card-text text-muted">Semantic matching using <strong>all-MiniLM-L6-v2</strong>. We understand the meaning behind your query, not just the keywords.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 feature-card p-4">
+                    <div class="card-body">
+                        <div class="icon-box"><i class="bi bi-columns-gap"></i></div>
+                        <h4 class="card-title fw-bold">Model Comparison</h4>
+                        <p class="card-text text-muted">Compare results from both engines side-by-side to see how different algorithms interpret your learning needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
