@@ -14,13 +14,16 @@
             <div class="card h-100 shadow-sm logic-card">
                 <div class="card-body">
                     <h4 class="fw-bold"><i class="bi bi-filter-square text-primary me-2"></i>TF-IDF Engine</h4>
-                    <p>The <strong>Term Frequency-Inverse Document Frequency</strong> model serves as our classical recommendation engine. It calculates the statistical importance of words across 8,500+ course descriptions.</p>
+                    <p>The <strong>Term Frequency-Inverse Document Frequency</strong> model serves as our classical
+                        recommendation engine. It calculates the statistical importance of words across 3,500+ course
+                        descriptions.</p>
                     <div class="mb-3">
                         <span class="tech-badge">Scikit-learn</span>
                         <span class="tech-badge">Cosine Similarity</span>
                         <span class="tech-badge">N-Grams</span>
                     </div>
-                    <p class="small text-muted">Best for: Finding specific tools (e.g., "Tableau", "React") and exact technical phrases.</p>
+                    <p class="small text-muted">Best for: Finding specific tools (e.g., "Tableau", "React") and exact
+                        technical phrases.</p>
                 </div>
             </div>
         </div>
@@ -28,13 +31,16 @@
             <div class="card h-100 shadow-sm logic-card" style="border-top-color: #198754;">
                 <div class="card-body">
                     <h4 class="fw-bold"><i class="bi bi-diagram-3 text-success me-2"></i>Neural Engine</h4>
-                    <p>Our deep learning engine utilizes <strong>Sentence-Transformers</strong> to map text into a 384-dimensional dense vector space. This allows the system to understand the context and synonyms of your query.</p>
+                    <p>Our deep learning engine utilizes <strong>Sentence-Transformers</strong> to map text into a
+                        384-dimensional dense vector space. This allows the system to understand the context and
+                        synonyms of your query.</p>
                     <div class="mb-3">
                         <span class="tech-badge">all-MiniLM-L6-v2</span>
                         <span class="tech-badge">PyTorch</span>
                         <span class="tech-badge">Semantic Search</span>
                     </div>
-                    <p class="small text-muted">Best for: Broad conceptual queries (e.g., "How to start a business" or "AI for beginners").</p>
+                    <p class="small text-muted">Best for: Broad conceptual queries (e.g., "How to start a business" or
+                        "AI for beginners").</p>
                 </div>
             </div>
         </div>
@@ -44,15 +50,20 @@
         <div class="row align-items-center">
             <div class="col-md-8">
                 <h3 class="fw-bold">Dataset Specifications</h3>
-                <p>The SmartCourse engine is trained on a comprehensive dataset of <strong>8,500+</strong> curated online courses. Every course entry undergoes a rigorous pre-processing pipeline before being indexed by our models.</p>
+                <p>The SmartCourse engine is trained on a comprehensive dataset of <strong>3,500+</strong> curated
+                    online courses. Every course entry undergoes a rigorous pre-processing pipeline before being indexed
+                    by our models.</p>
                 <ul class="list-unstyled">
-                    <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Pre-processing:</strong> Lemmatization and stop-word removal using <strong>spaCy</strong>.</li>
-                    <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Metadata:</strong> Includes Course Name, University, Level, and Rating.</li>
-                    <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Scope:</strong> Covers 15+ departments from Computer Science to Fine Arts.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Pre-processing:</strong>
+                        Lemmatization and stop-word removal using <strong>spaCy</strong>.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Metadata:</strong> Includes
+                        Course Name, University, Level, and Rating.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Scope:</strong> Covers 15+
+                        departments from Computer Science to Fine Arts.</li>
                 </ul>
             </div>
             <div class="col-md-4 text-center">
-                <div class="display-1 fw-bold text-primary">8.5k+</div>
+                <div class="display-1 fw-bold text-primary">3.5k+</div>
                 <p class="fw-bold text-muted uppercase">Verified Courses</p>
             </div>
         </div>
@@ -61,11 +72,20 @@
     <div class="card bg-dark text-white p-4 mb-5">
         <h4 class="fw-bold mb-3"><i class="bi bi-gear-wide-connected me-2"></i>Processing Pipeline</h4>
         <div class="row text-center">
-            <div class="col"><p class="small mb-1">Step 1</p><strong>Cleaning</strong><br><small class="text-white-50">HTML/Punctuation</small></div>
+            <div class="col">
+                <p class="small mb-1">Step 1</p><strong>Cleaning</strong><br><small
+                    class="text-white-50">HTML/Punctuation</small>
+            </div>
             <div class="col"><i class="bi bi-arrow-right"></i></div>
-            <div class="col"><p class="small mb-1">Step 2</p><strong>NLP</strong><br><small class="text-white-50">spaCy Tokens</small></div>
+            <div class="col">
+                <p class="small mb-1">Step 2</p><strong>NLP</strong><br><small class="text-white-50">spaCy
+                    Tokens</small>
+            </div>
             <div class="col"><i class="bi bi-arrow-right"></i></div>
-            <div class="col"><p class="small mb-1">Step 3</p><strong>Embedding</strong><br><small class="text-white-50">MiniLM Vectors</small></div>
+            <div class="col">
+                <p class="small mb-1">Step 3</p><strong>Embedding</strong><br><small class="text-white-50">MiniLM
+                    Vectors</small>
+            </div>
         </div>
     </div>
 </div>

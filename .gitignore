@@ -1,3 +1,7 @@
 .venv/
 __pycache__/
 *.pyc
+.env
+data/course_embeddings.npy
+logs/
+smart_course.db
