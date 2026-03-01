@@ -1,5 +1,12 @@
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
 }
 
 .hero-section {
@@ -16,7 +23,7 @@ body {
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .icon-box {
@@ -27,7 +34,66 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.btn-success { 
-    background-color: #28a745; 
-    border: none; 
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.search-container {
+    margin-top: 40px;
+}
+
+#savedContent .course-description-clamp {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+.course-description-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#resultsContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 1.5rem;
+}
+
+#resultsContent .course-card {
+    margin-bottom: 0 !important;
+    height: 100%;
+}
+
+#resultsContent .row {
+    height: 100%;
+}
+
+#resultsContent .col-md-9 {
+    display: flex;
+    flex-direction: column;
+}
+
+#resultsContent .col-md-9 .card-text {
+    flex-grow: 1;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.list-group-item .text-muted {
+    color: #212529bf !important;
+}
+
+.list-group-item.active .text-muted {
+    color: rgba(255, 255, 255, .5) !important;
 }

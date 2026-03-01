@@ -8,22 +8,23 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h2 class="mb-4 fw-bold text-center">What do you want to learn today?</h2>
-                
+
                 <form id="recommendationForm">
                     <div class="mb-4">
-                        <textarea class="form-control form-control-lg" rows="3" placeholder="e.g., I want to learn Python for data science and visualization..."></textarea>
+                        <textarea id="queryInput" class="form-control form-control-lg" rows="3"
+                            placeholder="e.g., I want to learn Python for data science and visualization..."></textarea>
                     </div>
-                    
+
                     <div class="row align-items-center">
                         <div class="col-md-7">
                             <label class="form-label fw-bold d-block">Select Recommendation Engine:</label>
                             <div class="btn-group w-100" role="group">
-                                <input type="radio" class="btn-check" name="model" id="tfidf" checked>
+                                <input type="radio" class="btn-check" name="model" id="tfidf" value="tfidf" checked>
                                 <label class="btn btn-outline-primary" for="tfidf">
                                     <i class="bi bi-fonts me-2"></i>TF-IDF (Keyword)
                                 </label>
 
-                                <input type="radio" class="btn-check" name="model" id="neural">
+                                <input type="radio" class="btn-check" name="model" id="neural" value="neural">
                                 <label class="btn btn-outline-primary" for="neural">
                                     <i class="bi bi-cpu me-2"></i>Neural (Semantic)
                                 </label>
@@ -31,7 +32,9 @@
                         </div>
                         <div class="col-md-5 mt-3 mt-md-0">
                             <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">
-                                <i class="bi bi-magic me-2"></i>Generate Results
+                                <i class="bi bi-magic me-2"></i><span id="btnText">Generate Results</span>
+                                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status"
+                                    aria-hidden="true"></span>
                             </button>
                         </div>
                     </div>
@@ -41,61 +44,31 @@
     </div>
 </div>
 
-<div class="container py-5">
+<div class="container py-5" id="resultsContainer" style="display: none;">
     <div class="d-flex justify-content-between align-items-end mb-4">
         <div>
-            <h4 class="fw-bold mb-0">Top 10 Recommendations</h4>
-            <small class="text-muted">Showing results based on Semantic Neural Model</small>
+            <h4 class="fw-bold mb-0" id="resultsCountHeader">Top 10 Recommendations</h4>
+            <small class="text-muted" id="resultsModelSubtitle">Showing results based on Semantic Neural Model</small>
         </div>
-        <span class="badge bg-light text-dark border p-2">10 Courses Found</span>
+        <span class="badge bg-light text-dark border p-2" id="resultsCountBadge">10 Courses Found</span>
     </div>
 
-    <div class="card course-card shadow-sm mb-4 p-3">
-        <div class="row align-items-start">
-            <div class="col-md-9">
-                <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-primary-subtle text-primary badge-model me-2">Neural Engine</span>
-                    <h5 class="card-title fw-bold mb-0">Machine Learning Specialization</h5>
-                </div>
-                <p class="text-secondary small mb-1"><i class="bi bi-building me-1"></i> Stanford University | <i class="bi bi-tag me-1"></i> Computer Science</p>
-                <p class="card-text">A foundational program that introduces you to the core concepts of machine learning, including supervised and unsupervised learning...</p>
-            </div>
-            <div class="col-md-3 border-start text-center">
-                <div class="mb-3">
-                    <label class="small fw-bold text-muted">Relevance Score</label>
-                    <h3 class="fw-bold text-primary">98%</h3>
-                    <div class="progress relevance-bar">
-                        <div class="progress-bar bg-primary" style="width: 98%"></div>
-                    </div>
-                </div>
-                <button class="btn btn-outline-success btn-sm w-100 mb-2"><i class="bi bi-bookmark-plus me-1"></i> Save Course</button>
-                <a href="#" class="btn btn-link btn-sm text-decoration-none">View Details</a>
-            </div>
+    <!-- loading spinner and no results handlers -->
+    <div id="loadingSpinner" style="display: none;" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
         </div>
+        <p class="mt-3 text-muted fw-bold">Analyzing courses and finding the best matches...</p>
     </div>
 
-    <div class="card course-card shadow-sm mb-4 p-3">
-        <div class="row align-items-start">
-            <div class="col-md-9">
-                <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-primary-subtle text-primary badge-model me-2">Neural Engine</span>
-                    <h5 class="card-title fw-bold mb-0">Applied Data Science with Python</h5>
-                </div>
-                <p class="text-secondary small mb-1"><i class="bi bi-building me-1"></i> University of Michigan | <i class="bi bi-tag me-1"></i> Data Science</p>
-                <p class="card-text">This course covers data analysis using the pandas library, social network analysis, and basic machine learning text mining...</p>
-            </div>
-            <div class="col-md-3 border-start text-center">
-                <div class="mb-3">
-                    <label class="small fw-bold text-muted">Relevance Score</label>
-                    <h3 class="fw-bold text-primary">85%</h3>
-                    <div class="progress relevance-bar">
-                        <div class="progress-bar bg-primary" style="width: 85%"></div>
-                    </div>
-                </div>
-                <button class="btn btn-outline-success btn-sm w-100 mb-2"><i class="bi bi-bookmark-plus me-1"></i> Save Course</button>
-                <a href="#" class="btn btn-link btn-sm text-decoration-none">View Details</a>
-            </div>
-        </div>
+    <div id="noResults" style="display: none;" class="text-center py-5">
+        <i class="bi bi-search" style="font-size: 3rem; color: #ccc;"></i>
+        <h5 class="mt-3">No courses found</h5>
+        <p class="text-muted">Try adjusting your search terms or selecting a different engine.</p>
+    </div>
+
+    <div id="resultsContent">
+        <!-- Results injected here by JS -->
     </div>
 </div>
 {% endblock %}
