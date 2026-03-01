@@ -719,36 +719,6 @@ async function loadComparison(query, sectionId) {
                             </tbody>
                         </table>
                     </div>
-                    
-                    <h5 class="fw-bold mb-3 mt-2 text-secondary">Relevance Signal Activity</h5>
-                    <div class="table-responsive shadow-sm border rounded">
-                        <table class="table align-middle mb-0">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th width="50%" class="text-muted">Relevance Signal</th>
-                                    <th width="25%" class="text-center text-primary">TF-IDF</th>
-                                    <th width="25%" class="text-center text-success">Neural</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="fw-bold small">Exact keyword match</td>
-                                    <td class="text-center fs-5">✅</td>
-                                    <td class="text-center fs-5">⚠️</td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-bold small">Concept understanding</td>
-                                    <td class="text-center fs-5">❌</td>
-                                    <td class="text-center fs-5">✅</td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-bold small">Beginner suitability</td>
-                                    <td class="text-center fs-5">✅</td>
-                                    <td class="text-center fs-5">✅</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             `;
         } else {

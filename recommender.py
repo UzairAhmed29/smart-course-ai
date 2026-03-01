@@ -7,19 +7,23 @@ from sentence_transformers import SentenceTransformer
 import joblib
 import os
 import logging
+import re
 
 logging.basicConfig(
-    level=logging.DEBUG,  # capture everything
+    level=logging.ERROR,
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     handlers=[
-        logging.FileHandler("logs/debug.log"),   # write to file
-        logging.StreamHandler()             # print to console
+        logging.FileHandler("logs/debug.log"),
+        logging.StreamHandler()
     ]
 )
 
-logger = logging.getLogger(__name__)
+# Silence Flask request logs
+logging.getLogger("werkzeug").setLevel(logging.ERROR)
 
-import re
+# Your app logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG) 
 
 def clean_text(text):
     if not isinstance(text, str):
@@ -168,7 +172,6 @@ class CourseRecommender:
             
             # Calculate cosine similarity
             similarities = cosine_similarity(query_vector, self.tfidf_matrix).flatten()
-            logger.debug('similarities')
             # Get top indices (more than N in case of duplicates)
             top_indices = similarities.argsort()[::-1]
             

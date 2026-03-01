@@ -8,21 +8,21 @@ from recommender import get_recommender
 import logging
 
 logging.basicConfig(
-    level=logging.DEBUG,  # capture everything
+    level=logging.ERROR,
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     handlers=[
-        logging.FileHandler("logs/debug.log"),   # write to file
-        logging.StreamHandler()             # print to console
+        logging.FileHandler("logs/debug.log"),
+        logging.StreamHandler()
     ]
 )
 
+logging.getLogger("werkzeug").setLevel(logging.ERROR)
+
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG) 
 
 load_dotenv()
 current_time = datetime.now()
-# dev keys
-# import secrets
-# print(secrets.token_hex(16))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("APP_SECRET")
